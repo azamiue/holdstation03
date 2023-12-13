@@ -1,0 +1,110 @@
+html {
+  font-family: "Poppins", sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  background: #e6f0ff;
+}
+
+main {
+  width: 90%;
+  max-height: 1290px;
+  margin: auto;
+}
+
+.content {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  height: 10rem;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #b9a9fb;
+}
+
+.checkwallet {
+  padding-bottom: 25px;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #b9a9fb;
+  opacity: 0.9;
+}
+
+.search-bar {
+  width: 75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  background: #fff;
+  width: 70rem;
+  height: 55px;
+  display: flex;
+}
+
+form input {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+
+form button {
+  font-weight: 600;
+  background-color: rgba(0, 0, 255, 0.3);
+  padding: 10px 10px;
+  border: none;
+  outline: none;
+  color: #0f1b4c;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: rgba(0, 0, 255, 0.4);
+}
+
+form img {
+  align-self: center;
+  padding: 20px 15px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 70px auto;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #b9a9fb;
+  text-align: left;
+  font-weight: 700;
+}
+
+.watchlist {
+  width: 600px;
+}
+
+iframe {
+  width: 650px;
+  height: 1290px;
+  overflow: hidden;
+}
