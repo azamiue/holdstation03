@@ -135,7 +135,13 @@ for (var i = 0; i < storedAddresses.length; i++) {
   watchlist.appendChild(dataRow);
 }
 
+let isFunctionRunning = false;
+
 async function returnText_wlist() {
+  if (isFunctionRunning) {
+    return;
+  }
+
   var input = document.getElementById("UserInput").value;
   var inputArray = input.split(",");
 
@@ -146,6 +152,7 @@ async function returnText_wlist() {
       if (res.status == 200) {
         const data = await res.json();
         if (storedAddresses.includes(key)) {
+          isFunctionRunning = true;
           alert(`${key} already exist`);
         } else {
           // lưu vào localstorage
@@ -189,6 +196,9 @@ async function returnText_wlist() {
 
           // // Append the buttonCell to the dataRow
           // dataRow.appendChild(buttonCell);
+          setTimeout(function () {
+            isFunctionRunning = false;
+          }, 5000);
         }
       } else {
         alert(`Could not find address: ${key}`);
@@ -198,7 +208,6 @@ async function returnText_wlist() {
     }
   }
   location.reload(true);
-  console.log("All requests completed");
 }
 
 async function refresh() {

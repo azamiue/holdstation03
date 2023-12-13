@@ -28,7 +28,13 @@ function addAddressToLocalStorage(address) {
   }
 }
 
+let isFunctionRunning = false;
+
 async function returnText() {
+  if (isFunctionRunning) {
+    return;
+  }
+
   var input = document.getElementById("UserInput").value;
   var inputArray_cache = input.split(",");
   var inputArray = inputArray_cache.filter(onlyUnique);
@@ -56,6 +62,7 @@ async function returnText() {
   resultTable.appendChild(headerRow);
 
   for (let key of inputArray) {
+    isFunctionRunning = true;
     var api_key = api + key;
     console.log(key);
 
@@ -88,18 +95,15 @@ async function returnText() {
           .getElementById("watchlist-iframe")
           .contentWindow.location.reload(true);
       } else {
-        alert(`Cannot to find address: ${key}`);
-        // Kiểm tra flag và xóa headerRow nếu không có dữ liệu hợp lệ
-        if (!hasValidData) {
-          resultTable.innerHTML = "";
-        }
+        alert(`Cannot find ${key}`);
       }
     } catch (error) {
       console.error(error.message);
     }
   }
-
-  console.log("All requests completed");
+  setTimeout(function () {
+    isFunctionRunning = false;
+  }, 2000);
 }
 
 async function SearchFromIframe(address) {
